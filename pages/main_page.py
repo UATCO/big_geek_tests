@@ -8,6 +8,7 @@ class MainPage(Region):
     basket = Button(By.CLASS_NAME, 'user-header-middle__link--cart', 'Корзина')
     auth_btn = Button(By.CLASS_NAME, 'login-modal-singin', 'Войти')
     account_btn = Button(By.CLASS_NAME, 'user-header-middle__link--account', 'Личный кабинет')
+    catalog_tab = Button(By.CLASS_NAME, 'dropdown-header', 'Вся электроника')
 
     def open(self):
         """Открываем главную страницу"""
@@ -52,3 +53,11 @@ class MainPage(Region):
         auth_pane.auth(email, password)
         self.auth_btn.should_not_be(Displayed)
         self.account_btn.should_be(Displayed)
+
+    def open_catalog_section(self, section: str):
+        """Открываем группу каталога
+        :param section: группа каталога"""
+
+        self.catalog_tab.click()
+        self.catalog_tab.element(By.CLASS_NAME, 'category-dropdown-header__item', element_type=CustomList).item(
+            contains_text=section).click()
