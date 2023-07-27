@@ -9,6 +9,8 @@ class MainPage(Region):
     auth_btn = Button(By.CLASS_NAME, 'login-modal-singin', 'Войти')
     account_btn = Button(By.CLASS_NAME, 'user-header-middle__link--account', 'Личный кабинет')
     catalog_tab = Button(By.CLASS_NAME, 'dropdown-header', 'Вся электроника')
+    search_btn = Element(By.CLASS_NAME, 'header-middle-search', 'Поле поиска') #вынести в контрол
+    search_panel = Element(By.CLASS_NAME, 'digi-ac__set_products', 'Панель поиска') #вынести в контрол
 
     def open(self):
         """Открываем главную страницу"""
@@ -61,3 +63,10 @@ class MainPage(Region):
         self.catalog_tab.click()
         self.catalog_tab.element(By.CLASS_NAME, 'category-dropdown-header__item', element_type=CustomList).item(
             contains_text=section).click()
+
+    def search(self, product: str):
+        """Ищем необходимое через поиск
+        params product: название продукта"""
+
+        self.search_btn.click()
+        self.search_panel.check_change(lambda: self.search_btn.element(By.CLASS_NAME, 'search-header-middle__input').type_in(product))

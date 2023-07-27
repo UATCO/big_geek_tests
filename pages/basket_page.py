@@ -5,7 +5,7 @@ from uatf.ui import *
 class BasketPage(Region):
     """Страница корзины"""
 
-    bread_crumbs = CustomList(By.CLASS_NAME, 'breadcrumbs__item', 'Хлебные крошки')
+    bread_crumbs = CustomList(By.CLASS_NAME, 'breadcrumbs__item', 'Хлебные крошки') #вынести крошки в контрол
     empty_view = Text(By.CLASS_NAME, 'cart__container', 'Корзина пуста')
 
     def check_load(self):
