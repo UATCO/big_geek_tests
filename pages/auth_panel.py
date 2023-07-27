@@ -21,6 +21,7 @@ class AuthPanel(Region):
         :param password: пароль"""
 
         log(f'Вводим логин: {email}')
+        self.login.should_be(Displayed)
         self.login.type_in(email)
 
         log(f'Вводим пароль: {password}')

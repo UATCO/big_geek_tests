@@ -2,8 +2,8 @@ from uatf import *
 from pages.main_page import MainPage
 
 
-class TestMainPage(TestCaseUI):
-    """Проверяем работу главной страницы"""
+class TestBasket(TestCaseUI):
+    """Проверяем работу корзины"""
 
     @classmethod
     def setUpClass(cls):
@@ -14,11 +14,5 @@ class TestMainPage(TestCaseUI):
 
         self.page.open_basket()
 
-    def test_02_check_auth(self):
-        """Проверяем авторизацию"""
-
-        self.page.auth(self.config.GENERAL.get('USER_NAME'), self.config.GENERAL.get('PASSWORD'))
-
     def tearDown(self):
         self.browser.close_windows_and_alert()
-        self.page.open()
