@@ -44,15 +44,25 @@ class MainPage(Region):
         auth_panel.check_open()
         return auth_panel
 
-    def auth(self, email: str, password: str):
+    def auth(self, email: str, password: str, through: str = 'Normal'):
         """Авторизуемся
         :param email: логин
-        :param password: пароль"""
+        :param password: пароль
+        :param through: через что авторизуемся: 'Normal'- обычная авторизация, 'GOOGLE'- через гугл,
+        'YANDEX'- через яндекс"""
 
-        auth_pane = self.open_auth_panel()
+        auth_panel = self.open_auth_panel()
 
         log('Авторизуемся')
-        auth_pane.auth(email, password)
+        if through == 'Normal':
+            auth_panel.auth(email, password)
+        elif through == 'GOOGLE':
+            auth_panel.modes.item(3).click()
+            auth_panel.auth_google(email, password)
+        elif through == 'YANDEX':
+            auth_panel.modes.item(4).click()
+            auth_panel.auth_yandex(email, password)
+
         self.auth_btn.should_not_be(Displayed)
         self.account_btn.should_be(Displayed)
 
