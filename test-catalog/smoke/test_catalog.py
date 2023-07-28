@@ -23,7 +23,7 @@ class TestCatalog(TestCaseUI):
     def test_02_check_search(self):
         """Проверяем работу поиска"""
 
-        self.page.search('iphone')
+        self.page.search_product('iphone')
 
     def tearDown(self):
         self.browser.close_windows_and_alert()

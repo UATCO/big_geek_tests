@@ -2,13 +2,13 @@ from uatf import *
 from uatf.ui import *
 
 
-class Breadcrumbs(Control):
+class ControlBreadcrumbs(Control):
     """Хлебные крошки"""
 
     def __str__(self):
         return "хлебные крошки"
 
-    def __init__(self, how=By.CLASS_NAME, locator='breadcrumbs__item', rus_name='Хлебные крошки'):
+    def __init__(self, how=By.CLASS_NAME, locator='breadcrumbs', rus_name='Хлебные крошки'):
         super().__init__(how, locator, rus_name)
 
         self.breadcrumbs = CustomList(By.CLASS_NAME,

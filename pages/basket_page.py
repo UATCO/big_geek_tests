@@ -6,7 +6,7 @@ from controls import *
 class BasketPage(Region):
     """Страница корзины"""
 
-    bread_crumbs = Breadcrumbs()
+    bread_crumbs = ControlBreadcrumbs()
     empty_view = Text(By.CLASS_NAME, 'cart__container', 'Корзина пуста')
 
     def check_load(self):
