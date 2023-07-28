@@ -71,7 +71,9 @@ class MainPage(Region):
         :param section: группа каталога"""
 
         self.catalog_tab.click()
-        self.catalog_tab.element(By.CLASS_NAME, 'category-dropdown-header__item', element_type=CustomList).item(
+        dropdown_panel = self.catalog_tab.element(By.CLASS_NAME, 'dropdown-header__list')
+        dropdown_panel.should_be(Displayed)
+        dropdown_panel.element(By.CLASS_NAME, 'category-dropdown-header__item', element_type=CustomList).item(
             contains_text=section).click()
 
     def search_product(self, product: str):
