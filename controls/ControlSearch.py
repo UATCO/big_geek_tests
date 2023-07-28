@@ -1,6 +1,6 @@
 from uatf import *
 from uatf.ui import *
-from ControlSearchPanel import ControlSearchPanel
+from .ControlSearchPanel import ControlSearchPanel
 
 
 class ControlSearch(Control):
@@ -9,8 +9,8 @@ class ControlSearch(Control):
     def __str__(self):
         return "контрол поиска"
 
-    def __init__(self, how=By.CLASS_NAME, locator='header-middle-search', rus_name='Поиск'):
-        super().__init__(how, locator, rus_name)
+    def __init__(self, how=By.CLASS_NAME, locator='header-middle-search', rus_name='Поиск', **kwargs):
+        super().__init__(how, locator, rus_name, **kwargs)
 
         self.search_input = TextField(By.CLASS_NAME,
                                       'search-header-middle__input',
@@ -34,4 +34,4 @@ class ControlSearch(Control):
         :param search_text: что ищем?"""
 
         self.open_search_panel()
-        self.search_input.type_in(search_text)
+        self.search_panel.check_change(lambda: self.search_input.type_in(search_text))

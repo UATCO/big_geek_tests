@@ -8,8 +8,8 @@ class ControlBreadcrumbs(Control):
     def __str__(self):
         return "хлебные крошки"
 
-    def __init__(self, how=By.CLASS_NAME, locator='breadcrumbs', rus_name='Хлебные крошки'):
-        super().__init__(how, locator, rus_name)
+    def __init__(self, how=By.CLASS_NAME, locator='breadcrumbs', rus_name='Хлебные крошки', **kwargs):
+        super().__init__(how, locator, rus_name, **kwargs)
 
         self.breadcrumbs = CustomList(By.CLASS_NAME,
                                       'breadcrumbs__item',

@@ -68,4 +68,4 @@ class MainPage(Region):
         """Ищем необходимое через поиск
         params product: название продукта"""
 
-        self.search.search_panel.check_change(lambda: self.search.search(product))
+        self.search.search(product)
