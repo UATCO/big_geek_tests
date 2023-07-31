@@ -18,7 +18,11 @@ class ProductCard(Region):
     def add_to_basket(self):
         """Добавляем товар в корзину"""
 
+        from pages.product_card_mini import ProductCardMini
         self.basket.click()
+        card_mini = ProductCardMini(self.driver)
+        card_mini.check_open()
+        return card_mini
 
     def check_load(self):
         """Проверяем загрузку карточки"""

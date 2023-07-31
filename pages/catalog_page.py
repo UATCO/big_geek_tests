@@ -22,7 +22,11 @@ class Catalog(Region):
         :param product_name: название товара
         :param product_number: номер товара"""
 
+        from pages.product_card_mini import ProductCardMini
         self.grid.add_to_basket(product_name=product_name, product_number=product_number)
+        card_mini = ProductCardMini(self.driver)
+        card_mini.check_open()
+        return card_mini
 
     def open_product(self, product_name: str = '', product_number: int = None):
         """Открываем карточку товара
@@ -52,7 +56,7 @@ class Catalog(Region):
             self.grid.check_change(lambda: self.filter.price_filter.set_price(price[0], price[1]))
         elif 'Бренд' in kwargs:
             self.filter.brend_filter.select_brend(kwargs.get('Бренд'))
-            self.grid.check_change(lambda : self.filter.show_products())
+            self.grid.check_change(lambda: self.filter.show_products())
 
     def check_count_products(self, count: int):
         """Проверяем кол-во продуктов
