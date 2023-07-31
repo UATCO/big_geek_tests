@@ -36,4 +36,5 @@ class TestCatalog(TestCaseUI):
         self.catalog.search_product('iphone 13')
 
     def tearDown(self):
+        self.page.open()
         self.browser.close_windows_and_alert()

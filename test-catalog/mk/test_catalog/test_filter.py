@@ -46,4 +46,5 @@ class TestFilter(TestCaseUI):
         card.check_name(product_name)
 
     def tearDown(self):
+        self.page.open()
         self.browser.close_windows_and_alert()
