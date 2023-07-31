@@ -9,6 +9,7 @@ class BasketPage(Region):
     bread_crumbs = ControlBreadcrumbs()
     empty_view = Text(By.CLASS_NAME, 'cart__container', 'Корзина пуста')
     products = CustomList(By.CLASS_NAME, 'product-cart__item', 'Товары')
+    order = Button(By.CLASS_NAME, 'sticky-cart__button', 'Оформить заказ')
 
     def check_load(self):
         """Проверка загрузки"""
@@ -43,3 +44,8 @@ class BasketPage(Region):
         :param product_name: название товара"""
 
         self.get_products(product_name).element(By.CLASS_NAME, 'product-cart__remove-button').click()
+
+    def make_order(self):
+        """Оформляем заказ"""
+
+        self.order.click()
