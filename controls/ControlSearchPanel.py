@@ -20,7 +20,16 @@ class ControlSearchPanel(Control):
                                      'digi-ac__set_products',
                                      'Продукты')
 
+        self.all_results = Button(By.CLASS_NAME,
+                                  'digi-ac-find__button',
+                                  'Все результаты')
+
     def check_open(self):
         """Проверяем открытие панели"""
 
         self.product_panel.should_be(Displayed)
+
+    def open_catalog(self):
+        """Открываем каталог по кнопке Все результаты"""
+
+        self.all_results.click()

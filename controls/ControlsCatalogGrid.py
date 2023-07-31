@@ -31,3 +31,10 @@ class ControlCatalogGrid(Control):
         :param contains_text: частичное совпадение текста"""
 
         return self.items.item(item_number, with_text, contains_text)
+
+    def check_count(self, count: int):
+        """Проверяем кол-во продуктов
+        :param count: кол-во продуктов"""
+
+        assert_that(lambda : self.items.count_elements, equal_to(count), 'Кол-во не совпадает', and_wait(3))
+
