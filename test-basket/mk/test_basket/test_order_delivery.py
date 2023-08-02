@@ -4,7 +4,7 @@ from pages.catalog_page import Catalog
 
 
 class TestOrderDelivery(TestCaseUI):
-    """Проверяем оформление заказа"""
+    """Проверяем оформление заказа с доставкой"""
 
     @classmethod
     def setUpClass(cls):
@@ -12,7 +12,7 @@ class TestOrderDelivery(TestCaseUI):
         cls.catalog = Catalog(cls.driver)
 
     def test_01_make_order_delivery(self):
-        """Проверяем оформление заказа c самовывозом"""
+        """Проверяем оформление заказа c доставкой"""
 
         log('Переходим в каталог товаров Apple')
         self.page.open_catalog_section('Apple')

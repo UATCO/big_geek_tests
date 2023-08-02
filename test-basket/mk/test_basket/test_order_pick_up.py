@@ -4,7 +4,7 @@ from pages.catalog_page import Catalog
 
 
 class TestOrderPickup(TestCaseUI):
-    """Проверяем оформление заказа"""
+    """Проверяем оформление заказа с самовывозом"""
 
     @classmethod
     def setUpClass(cls):
