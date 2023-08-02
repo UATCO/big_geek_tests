@@ -7,7 +7,7 @@ class AuthPanel(Region):
     """Панелька авторизации"""
 
     caption = Text(By.CLASS_NAME, 'login-modal__title', 'Заголовок')
-    login = TextField(By.CSS_SELECTOR, '[name="email"]', 'Электронная почта')
+    login = TextField(By.CSS_SELECTOR, '.login-modal__wrap [name="email"]', 'Электронная почта')
     password = TextField(By.CSS_SELECTOR, '[name="current-password"]', 'Пароль')
     auth_btn = Button(By.CLASS_NAME, 'login-modal__login-submit', 'Войти')
     modes = CustomList(By.CLASS_NAME, 'login-modal__item', 'Соцсети для авторизации')

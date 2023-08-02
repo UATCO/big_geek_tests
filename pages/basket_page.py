@@ -48,4 +48,8 @@ class BasketPage(Region):
     def make_order(self):
         """Оформляем заказ"""
 
+        from pages.order_page import OrderPage
         self.order.click()
+        order_page = OrderPage(self.driver)
+        order_page.check_load()
+        return order_page
