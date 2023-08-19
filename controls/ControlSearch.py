@@ -35,3 +35,4 @@ class ControlSearch(Control):
 
         self.open_search_panel()
         self.search_panel.check_change(lambda: self.search_input.type_in(search_text))
+        self.search_input.should_be(ContainsText(search_text))

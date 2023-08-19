@@ -18,11 +18,15 @@ class ControlSearchPanel(Control):
 
         self.product_panel = Element(By.CLASS_NAME,
                                      'digi-ac__set_products',
-                                     'Продукты')
+                                     'Панель с продуктами')
 
         self.all_results = Button(By.CLASS_NAME,
                                   'digi-ac-find__button',
                                   'Все результаты')
+
+        self.items = CustomList(By.CLASS_NAME,
+                                'digi-product',
+                                'Продукты')
 
     def check_open(self):
         """Проверяем открытие панели"""
@@ -33,3 +37,11 @@ class ControlSearchPanel(Control):
         """Открываем каталог по кнопке Все результаты"""
 
         self.all_results.click()
+
+    def item(self, item_number: int = 0, with_text: str = '', contains_text: str = ''):
+        """Возвращает продукт
+        :param item_number: номер продукта
+        :param with_text: точное совпадение текста
+        :param contains_text: частичное совпадение текста"""
+
+        return self.items.item(item_number, with_text, contains_text)

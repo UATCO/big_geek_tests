@@ -25,8 +25,8 @@ class ControlCatalogGrid(Control):
         self.item(contains_text=product_name, item_number=product_number).element(By.CLASS_NAME, self.basket).click()
 
     def item(self, item_number: int = 0, with_text: str = '', contains_text: str = ''):
-        """Возвращает хлебную крошку
-        :param item_number: номер крошки
+        """Возвращает товар каталога
+        :param item_number: номер товара
         :param with_text: точное совпадение текста
         :param contains_text: частичное совпадение текста"""
 

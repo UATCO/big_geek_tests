@@ -81,3 +81,4 @@ class MainPage(Region):
         params product: название продукта"""
 
         self.search.search(product)
+        self.search.search_panel.item(contains_text=product).should_be(Displayed)
