@@ -8,6 +8,7 @@ class Catalog(Region):
 
     bread_crumbs = ControlBreadcrumbs()
     grid = ControlCatalogGrid()
+    grid_after_serch = ControlsCatalogGridAfterSearch()
     search = ControlSearch()
     filter = ControlFilterPanel()
 
@@ -34,7 +35,8 @@ class Catalog(Region):
         :param product_number: номер товара"""
 
         from pages.product_card import ProductCard
-        self.grid.item(item_number=product_number, contains_text=product_name).scroll_into_view().click()
+        product = self.grid.item(item_number=product_number, contains_text=product_name)
+        product.click()
         card = ProductCard(self.driver)
         card.check_load()
         return card
@@ -45,6 +47,7 @@ class Catalog(Region):
 
         self.search.search(product_name)
         self.search.search_panel.open_catalog()
+        self.grid_after_serch.item(contains_text=product_name).should_be(Displayed)
 
     def set_filter(self, **kwargs):
         """Устанавливаем фильтр

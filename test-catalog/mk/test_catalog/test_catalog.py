@@ -17,13 +17,13 @@ class TestCatalog(TestCaseUI):
     def test_01_check_open_product(self):
         """Проверяем работу каталога (открытие карточки товара + сроллинг)"""
 
-        product_name = 'Samsung Galaxy Buds'
+        product_name = 'Samsung Galaxy Buds2'
 
         log('Переходим в каталог товаров Samsung')
         self.page.open_catalog_section('Samsung')
         self.catalog.check_load()
 
-        log('Открываем карточку первого товара')
+        log(f'Открываем карточку {product_name}')
         card = self.catalog.open_product(product_name)
         card.check_name(product_name)
 
@@ -33,7 +33,7 @@ class TestCatalog(TestCaseUI):
         log('Переходим в каталог товаров Apple')
         self.page.open_catalog_section('Apple')
         self.catalog.check_load()
-        self.catalog.search_product('iphone 13')
+        self.catalog.search_product('iPhone 13')
 
     def tearDown(self):
         self.page.open()
