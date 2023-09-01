@@ -1,0 +1,1 @@
+uatf[web] @ git+https://github.com/UATCO/uatf.git@master
