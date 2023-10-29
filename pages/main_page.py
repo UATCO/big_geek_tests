@@ -8,7 +8,7 @@ class MainPage(Region):
 
     basket = Button(By.CLASS_NAME, 'user-header-middle__link--cart', 'Корзина')
     auth_btn = Button(By.CLASS_NAME, 'login-modal-singin', 'Войти')
-    account_btn = Button(By.CLASS_NAME, 'user-header-middle__link--account', 'Личный кабинет')
+    account_btn = Button(By.CLASS_NAME, 'user-header-middle__link--', 'Личный кабинет')
     catalog_tab = Button(By.CLASS_NAME, 'dropdown-header', 'Вся электроника')
     search = ControlSearch()
 
